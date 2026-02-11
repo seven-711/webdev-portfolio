@@ -1,0 +1,90 @@
+/* preloader.css */
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg);
+  /* Using global background variable */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+ * Container for the loader content
+ */
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  /* Add padding to accommodate font ascenders/descenders */
+  /* overflow: hidden; Removed to prevent clipping of large italic fonts */
+}
+
+/* 
+ * A large, bold percentage counter using the italic heading font
+ */
+.preloader-counter {
+  font-family: "rader", sans-serif;
+  font-style: italic;
+  font-size: 8rem;
+  /* Large impact */
+  font-weight: 300;
+  color: var(--fg);
+  line-height: 1.1;
+  /* Increased line-height to prevent clipping */
+  transform: translateY(100%);
+  /* Initial slide-up state can be handled here or JS */
+}
+
+/* 
+ * The subtle loading text using the monospace UI font
+ */
+.preloader-text {
+  font-family: "supply-mono", monospace;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: var(--fg);
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+}
+
+/* 
+ * Responsive adjustments
+ */
+@media (max-width: 1000px) {
+  .preloader-counter {
+    font-size: 4rem;
+  }
+}
+
+/* 
+ * Corner Loopers 
+ */
+.preloader-angle-text {
+  position: absolute;
+  font-family: "supply-mono", monospace;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: var(--fg);
+  opacity: 0;
+  /* Changed from 0.7 to 0 for gradual reveal */
+}
+
+.preloader-loop-top-left {
+  top: 2rem;
+  left: 2rem;
+}
+
+.preloader-services-bottom-right {
+  bottom: 2rem;
+  right: 2rem;
+  text-align: right;
+  /* Align text to the right for the bottom-right corner */
+}
